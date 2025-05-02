@@ -9,12 +9,13 @@ package Presentación;
  * @author joset
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
-
+ 
     /**
      * Creates new form FrmMenuPrincipal
      */
     public FrmMenuPrincipal() {
         initComponents();
+        System.out.println("Hola mundo");
     }
 
     /**
