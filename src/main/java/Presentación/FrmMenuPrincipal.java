@@ -18,8 +18,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         System.out.println("Hola mundo");
         System.out.println("Ya me conecte");
         
-        System.out.println("ya me conecte");
-        System.out.println("ya me conecte");
+        System.out.println("Ya me conecte");
+        System.out.println("by aramis");
     }
 
     /**
