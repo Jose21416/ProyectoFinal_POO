@@ -13,7 +13,6 @@ import javax.swing.ImageIcon;
  * @author joset
  */
 public class FrmLogin extends javax.swing.JFrame {
-
     /**
      * Creates new form FrmLogin
      */
@@ -61,13 +60,14 @@ public class FrmLogin extends javax.swing.JFrame {
         setTitle("Iniciar sesión");
         setBackground(new java.awt.Color(102, 204, 255));
         setForeground(new java.awt.Color(51, 204, 255));
-        setMaximumSize(new java.awt.Dimension(32767, 32767));
         setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Usuario:");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña:");
 
         btnCancelar.setText("Cancelar");
