@@ -18,10 +18,11 @@ public class FrmEgresado extends javax.swing.JFrame {
 
     public FrmEgresado() {
         initComponents();
+        pnlContent.setLayout(new BorderLayout());
         setupMenuPanel(pnlInicio);
         setupMenuPanel(pnlCursos);
         initContent();
-        
+
         activePanel = pnlInicio;
         activePanel.setBackground(COLOR_ACTIVE);
     }
@@ -38,10 +39,10 @@ public class FrmEgresado extends javax.swing.JFrame {
                 }
                 panel.setBackground(COLOR_ACTIVE);
                 activePanel = panel;
-                
-                if (panel == pnlInicio){
+
+                if (panel == pnlInicio) {
                     cargarPanel(new Inicio());
-                }else if (panel == pnlCursos){
+                } else if (panel == pnlCursos) {
                     cargarPanel(new Cursos());
                 }
             }
@@ -76,8 +77,8 @@ public class FrmEgresado extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlBackground = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         pnlInicio = new javax.swing.JPanel();
         txtInicio = new javax.swing.JLabel();
         pnlCursos = new javax.swing.JPanel();
@@ -90,22 +91,26 @@ public class FrmEgresado extends javax.swing.JFrame {
         pnlBackground.setBackground(new java.awt.Color(236, 244, 249));
         pnlBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(13, 27, 42));
 
-        jPanel1.setBackground(new java.awt.Color(0, 67, 40));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 70, Short.MAX_VALUE)
         );
 
+        pnlBackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 70));
+
+        pnlMenu.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         pnlInicio.setBackground(new java.awt.Color(255, 255, 255));
+        pnlInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtInicio.setForeground(new java.awt.Color(0, 0, 0));
@@ -129,7 +134,10 @@ public class FrmEgresado extends javax.swing.JFrame {
                 .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        pnlMenu.add(pnlInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 70));
+
         pnlCursos.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCursos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtCursos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtCursos.setForeground(new java.awt.Color(0, 0, 0));
@@ -140,9 +148,9 @@ public class FrmEgresado extends javax.swing.JFrame {
         pnlCursos.setLayout(pnlCursosLayout);
         pnlCursosLayout.setHorizontalGroup(
             pnlCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCursosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlCursosLayout.createSequentialGroup()
+                .addComponent(txtCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlCursosLayout.setVerticalGroup(
             pnlCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,25 +159,9 @@ public class FrmEgresado extends javax.swing.JFrame {
                 .addComponent(txtCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
-        pnlMenu.setLayout(pnlMenuLayout);
-        pnlMenuLayout.setHorizontalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(pnlInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(pnlCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        pnlMenuLayout.setVerticalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnlInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnlCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        pnlMenu.add(pnlCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 90, 70));
 
-        pnlBackground.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 800));
+        pnlBackground.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 90, 730));
 
         pnlContent.setBackground(new java.awt.Color(236, 244, 249));
 
@@ -177,14 +169,14 @@ public class FrmEgresado extends javax.swing.JFrame {
         pnlContent.setLayout(pnlContentLayout);
         pnlContentLayout.setHorizontalGroup(
             pnlContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1110, Short.MAX_VALUE)
+            .addGap(0, 1310, Short.MAX_VALUE)
         );
         pnlContentLayout.setVerticalGroup(
             pnlContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pnlBackground.add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 1110, 730));
+        pnlBackground.add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 1310, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,7 +186,7 @@ public class FrmEgresado extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(pnlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -234,7 +226,7 @@ public class FrmEgresado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel pnlBackground;
     private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlCursos;
@@ -246,16 +238,16 @@ public class FrmEgresado extends javax.swing.JFrame {
 
     private void initContent() {
         cargarPanel(new Inicio());
-        
+
     }
 
     private void cargarPanel(JPanel panel) {
-                panel.setSize(1110,730);
-                panel.setLocation(0, 0);
-        
-                pnlContent.removeAll();
-                pnlContent.add(panel, BorderLayout.CENTER);
-                pnlContent.revalidate();
-                pnlContent.repaint();
-            }
+        panel.setSize(pnlContent.getSize());
+        panel.setLocation(0, 0);
+        pnlContent.removeAll();
+        pnlContent.add(panel, BorderLayout.CENTER);
+        pnlContent.revalidate();
+        pnlContent.repaint();
+    }
+
 }
