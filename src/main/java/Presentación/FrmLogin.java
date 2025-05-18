@@ -15,6 +15,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         lblRecuperar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
+        
         ImageIcon imLogin = new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Usuarios.png"));
         Icon icLogin = new ImageIcon(imLogin.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH));
         lblLogin.setIcon(icLogin);
@@ -192,6 +193,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         FrmRecuperarContraseña FrmRecuperarContraseña = new FrmRecuperarContraseña();
         FrmRecuperarContraseña.show();
+        this.dispose();
     }//GEN-LAST:event_lblRecuperarMouseClicked
 
     /**
