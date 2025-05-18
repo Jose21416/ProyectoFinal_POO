@@ -1,7 +1,6 @@
 
 package Presentación;
 
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -189,8 +188,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void lblRecuperarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperarMouseClicked
         // TODO add your handling code here:
         
-        @Override
-        public void mouseEntered
+        
         
         FrmRecuperarContraseña FrmRecuperarContraseña = new FrmRecuperarContraseña();
         FrmRecuperarContraseña.show();
