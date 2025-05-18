@@ -1,21 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Presentación;
 
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author joset
- */
 public class FrmLogin extends javax.swing.JFrame {
-    /**
-     * Creates new form FrmLogin
-     */
+
     public FrmLogin() {
         initComponents();
         setLocationRelativeTo(null);

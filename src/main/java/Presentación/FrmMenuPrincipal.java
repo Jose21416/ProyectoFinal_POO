@@ -15,13 +15,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      */
     public FrmMenuPrincipal() {
         initComponents();
-        System.out.println("Holii");
-        System.out.println("Llegue");
-        System.out.println("Hola mundo");
-        System.out.println("Ya me conecte");
-        
-        System.out.println("Ya me conecte");
-        System.out.println("by aramis");
     }
 
     /**
