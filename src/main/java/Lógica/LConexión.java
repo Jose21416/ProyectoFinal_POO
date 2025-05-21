@@ -10,7 +10,7 @@ public class LConexión {
     
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/proyectofinal?useSSL=false&serverTimezone=UTC";
     private static final String USUARIO = "root";
-    private static final String CONTRASENA = "root"; // <-- Aquí está el cambio
+    private static final String CONTRASENA = "root"; 
 
     public static void main(String[] args) {
         try {

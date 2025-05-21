@@ -5,69 +5,41 @@ import java.time.LocalDate;
 
 
 public class TipoUsuario {
-    private int idPerfil;
-    private String direccion;
-    private java.time.LocalDate fechaNacimiento;
-    private String ocupacion;
-    private String experienciaLaboral;
-    private int idUsuario;
+   private int idTipousuario;
+   private String descripcion;
+   private int idInt;
 
-    public TipoUsuario(int idPerfil, String direccion, LocalDate fechaNacimiento, String ocupacion, String experienciaLaboral, int idUsuario) {
-        this.idPerfil = idPerfil;
-        this.direccion = direccion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.ocupacion = ocupacion;
-        this.experienciaLaboral = experienciaLaboral;
-        this.idUsuario = idUsuario;
-    }
-    
-    public int getIdPerfil() {
-        return idPerfil;
+    public TipoUsuario(int idTipousuario, String descripcion, int idInt) {
+        this.idTipousuario = idTipousuario;
+        this.descripcion = descripcion;
+        this.idInt = idInt;
     }
 
-    public void setIdPerfil(int idPerfil) {
-        this.idPerfil = idPerfil;
+    public int getIdTipousuario() {
+        return idTipousuario;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public void setIdTipousuario(int idTipousuario) {
+        this.idTipousuario = idTipousuario;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public java.time.LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public void setFechaNacimiento(java.time.LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public int getIdInt() {
+        return idInt;
     }
 
-    public String getOcupacion() {
-        return ocupacion;
+    public void setIdInt(int idInt) {
+        this.idInt = idInt;
     }
-
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
-    }
-
-    public String getExperienciaLaboral() {
-        return experienciaLaboral;
-    }
-
-    public void setExperienciaLaboral(String experienciaLaboral) {
-        this.experienciaLaboral = experienciaLaboral;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+   
+   
     
     
 }
