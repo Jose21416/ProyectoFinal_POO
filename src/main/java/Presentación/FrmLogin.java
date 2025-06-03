@@ -193,7 +193,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         FrmRecuperarContraseña FrmRecuperarContraseña = new FrmRecuperarContraseña();
         FrmRecuperarContraseña.show();
-        this.dispose();
+        
     }//GEN-LAST:event_lblRecuperarMouseClicked
 
     /**

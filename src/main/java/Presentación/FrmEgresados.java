@@ -9,7 +9,7 @@ package Presentación;
  * @author joset
  */
 public class FrmEgresados extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrmEgresados
      */
@@ -32,11 +32,11 @@ public class FrmEgresados extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 777, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
 
         pack();

@@ -15,6 +15,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
      */
     public FrmEstudiantes() {
         initComponents();
+        
     }
 
     /**
