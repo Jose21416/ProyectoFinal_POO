@@ -190,9 +190,8 @@ public class FrmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        
-        FrmRecuperarContraseña FrmRecuperarContraseña = new FrmRecuperarContraseña();
-        FrmRecuperarContraseña.show();
+        FrmCodigoRecuperacion FrmCodigoRecuperacion = new FrmCodigoRecuperacion();
+        FrmCodigoRecuperacion.show();
         
     }//GEN-LAST:event_lblRecuperarMouseClicked
 
