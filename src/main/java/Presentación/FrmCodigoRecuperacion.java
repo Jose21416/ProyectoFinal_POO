@@ -8,6 +8,7 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
     private String codigoGenerado;
     private final int LONGITUD_CODIGO = 6;
     private final int DURACION_CODIGO = 60;
+    private String correoDestino;
 
     public FrmCodigoRecuperacion() {
         initComponents();
@@ -35,7 +36,7 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
         txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
 
         lblContador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblContador.setText("jLabel2");
+        lblContador.setText("contador");
 
         btnReenviar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnReenviar.setText("Reenviar Código");
@@ -51,13 +52,8 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnReenviar)
-                        .addGap(159, 159, 159))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblContador)
-                        .addGap(201, 201, 201))))
+                .addComponent(btnReenviar)
+                .addGap(159, 159, 159))
             .addGroup(layout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,19 +62,23 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(10, 10, 10)))
                 .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblContador)
+                .addGap(196, 196, 196))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(80, 80, 80)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(lblContador)
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(btnReenviar)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
