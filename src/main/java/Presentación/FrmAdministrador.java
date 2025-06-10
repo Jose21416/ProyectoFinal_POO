@@ -17,7 +17,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
      */
     public FrmAdministrador() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -34,7 +34,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         usuarios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gestión administrativa - Sideral Carrión");
+        setTitle("Portal del Administrador\n");
 
         jMenu2.setText("Herramientas");
 
