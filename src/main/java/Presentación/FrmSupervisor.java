@@ -15,6 +15,7 @@ public class FrmSupervisor extends javax.swing.JFrame {
      */
     public FrmSupervisor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -110,7 +111,7 @@ public class FrmSupervisor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDesktopPane1)
                 .addContainerGap())
         );
 
@@ -120,6 +121,7 @@ public class FrmSupervisor extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         FrmUserSuper u = new FrmUserSuper();
         jDesktopPane1.add(u);
+        u.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
