@@ -12,6 +12,7 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
 
     public FrmCodigoRecuperacion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
