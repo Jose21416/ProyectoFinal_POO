@@ -1,11 +1,11 @@
 package Presentación;
 
-import Clases.TemporizadorCodigo;
+import Lógica.LTemporizadorCodigo;
 import javax.swing.JOptionPane;
 
 public class FrmCodigoRecuperacion extends javax.swing.JFrame {
 
-    private TemporizadorCodigo temporizador;
+    private LTemporizadorCodigo temporizador;
     private String codigoGenerado;
     private final int LONGITUD_CODIGO = 6;
     private final int DURACION_CODIGO = 60;
@@ -121,7 +121,7 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        temporizador = new TemporizadorCodigo(DURACION_CODIGO, lblContador, btnReenviar);
+        temporizador = new LTemporizadorCodigo(DURACION_CODIGO, lblContador, btnReenviar);
         temporizador.Iniciar();
 
         enviarCodigoAlCorreo();

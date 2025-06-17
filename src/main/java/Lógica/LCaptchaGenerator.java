@@ -1,10 +1,10 @@
-package Clases;
+package Lógica;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class CaptchaGenerator {
+public class LCaptchaGenerator {
     private String captchaText;
     private final int width = 160;
     private final int height = 50;

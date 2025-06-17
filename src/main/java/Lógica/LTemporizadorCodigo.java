@@ -1,15 +1,15 @@
 
-package Clases;
+package Lógica;
 import javax.swing.*;
 import java.awt.event.*;
-public class TemporizadorCodigo {
+public class LTemporizadorCodigo {
     private int segundos;
     private final int DURACION_DEFAULT = 60;
     private Timer timer;
     private JLabel lblContador;
     private JButton btnReenviar;
 
-    public TemporizadorCodigo(int segundos, JLabel lblContador, JButton btnReenviar) {
+    public LTemporizadorCodigo(int segundos, JLabel lblContador, JButton btnReenviar) {
         this.segundos = DURACION_DEFAULT;
         this.lblContador = lblContador;
         this.btnReenviar = btnReenviar;

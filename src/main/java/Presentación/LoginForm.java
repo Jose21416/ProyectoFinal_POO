@@ -1,6 +1,6 @@
 package Presentación;
 
-import Clases.CaptchaGenerator;
+import Lógica.LCaptchaGenerator;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 
 public class LoginForm extends javax.swing.JFrame {
     
-    private final CaptchaGenerator captcha;
+    private final LCaptchaGenerator captcha;
 
     public LoginForm() {
         initComponents();
         
-        captcha = new CaptchaGenerator();
+        captcha = new LCaptchaGenerator();
         BufferedImage captchaImg = captcha.generateCaptchaImage();
         lblcaptcha.setIcon(new ImageIcon(captchaImg));
     }
