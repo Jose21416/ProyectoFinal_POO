@@ -137,7 +137,7 @@ public class FrmRecuperarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_txtConfirmarContraseñaActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-    FrmLogin FrmLogin = new FrmLogin();
+    FrmLogin2 FrmLogin = new FrmLogin2();
     FrmLogin.show();
     this.dispose();
     

@@ -170,7 +170,7 @@ public class FrmEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
-        FrmLogin l = new FrmLogin();
+        FrmLogin2 l = new FrmLogin2();
         l.show();
         this.dispose();
     }//GEN-LAST:event_cerrarSesionActionPerformed

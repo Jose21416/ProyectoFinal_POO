@@ -1,32 +1,36 @@
 
 package Lógica;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 
 public class LConexión {
     
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/proyectofinal?useSSL=false&serverTimezone=UTC";
-    private static final String USUARIO = "root";
-    private static final String CONTRASENA = "root"; 
+    private Connection cn;
+    private final String driver = "com.mysql.cj.jdbc.Driver";
+    private final String url = "jdbc:mysql://localhost:3306/bd_profesores?useSSL=false&serverTimezone=UTC";
+    private final String usuario = "root";
+    private final String clave = "root";
 
-    public static void main(String[] args) {
+    public Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection conexion = DriverManager.getConnection(URL, USUARIO, CONTRASENA);
-            System.out.println("✅ Conexión exitosa a MySQL!");
-
-            conexion.close(); 
-        } catch (SQLException e) {
-            System.out.println("❌ Error al conectar a la base de datos:");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            System.out.println("❌ Driver JDBC no encontrado:");
-            e.printStackTrace();
+            Class.forName(driver);
+            cn = DriverManager.getConnection(url, usuario, clave);
+            JOptionPane.showMessageDialog(null, "Se conectó correctamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
         }
+        return cn;
     }
+
+    // Verificar la conexión
+    public static void main(String[] args) {
+        LConexión ocon = new LConexión();
+        System.out.println("Conectado: " + ocon.getConnection());
+        System.out.println("Ok");
+    }
+
+    
     
 }

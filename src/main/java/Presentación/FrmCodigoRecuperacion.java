@@ -128,7 +128,7 @@ public class FrmCodigoRecuperacion extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        FrmLogin l = new FrmLogin();
+        FrmLogin2 l = new FrmLogin2();
         l.show();
         this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed

@@ -140,7 +140,7 @@ public class FrmSupervisor extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
-        FrmLogin lo = new FrmLogin();
+        FrmLogin2 lo = new FrmLogin2();
         lo.show();
         this.dispose();
     }//GEN-LAST:event_cerrarSesionActionPerformed
