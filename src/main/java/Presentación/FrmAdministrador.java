@@ -32,6 +32,8 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         usuarios = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Portal del Administrador\n");
@@ -47,6 +49,19 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jMenu2.add(usuarios);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Cerrar sesión");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
+        jMenuItem1.setText("Volver al login");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -71,6 +86,12 @@ public class FrmAdministrador extends javax.swing.JFrame {
         usuarios.setVisible(true);
 
     }//GEN-LAST:event_usuariosActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmLogin2 log = new FrmLogin2();
+        log.show();
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,8 +129,10 @@ public class FrmAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem usuarios;
     // End of variables declaration//GEN-END:variables
 }

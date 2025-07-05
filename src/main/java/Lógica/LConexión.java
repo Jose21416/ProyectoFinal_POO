@@ -9,7 +9,7 @@ public class LConexión {
     
     private Connection cn;
     private final String driver = "com.mysql.cj.jdbc.Driver";
-    private final String url = "jdbc:mysql://localhost:3306/bd_profesores?useSSL=false&serverTimezone=UTC";
+    private final String url = "jdbc:mysql://localhost:3306/proyectofinal?useSSL=false&serverTimezone=UTC";
     private final String usuario = "root";
     private final String clave = "root";
 

@@ -1,14 +1,19 @@
 
 package Presentación;
 
+import Datos.DUsuarios;
 import java.awt.Cursor;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import Lógica.LUsuarios;
 
 public class FrmLogin2 extends javax.swing.JFrame {
 
+    DUsuarios en = new DUsuarios();
+    LUsuarios l = new LUsuarios();
+    
     public FrmLogin2() {
         initComponents();
         setLocationRelativeTo(null);
@@ -135,32 +140,30 @@ public class FrmLogin2 extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(137, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnIngresar)
-                            .addComponent(btnCancelar))
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresar)
+                    .addComponent(btnCancelar))
+                .addGap(18, 18, 18)
                 .addComponent(lblRecuperar)
                 .addGap(117, 117, 117))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,34 +181,49 @@ public class FrmLogin2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
+        String usuario = txtUsuario.getText().trim();
+        String contraseña = txtContraseña.getText().trim();
         String tipoUsuario = cbxTipoUsuario.getSelectedItem().toString();
 
-        // Validar que el usuario haya elegido un tipo válido
-        if (tipoUsuario.equals("Elije un usuario")) {
-            JOptionPane.showMessageDialog(null, "Por favor, selecciona un tipo de usuario.");
-            return; // Detiene el proceso
+        if (usuario.equals("") && contraseña.equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese credenciales", "Aviso del sistema",
+                    JOptionPane.INFORMATION_MESSAGE);
+            txtUsuario.requestFocus();
+            return;
         }
 
-        // Aquí podrías validar usuario y clave si es necesario
-        if (tipoUsuario.equals("Administrador")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido, Administrador.");
-            new FrmAdministrador().setVisible(true);
-            this.dispose();
-        } else if (tipoUsuario.equals("Supervisor")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido, Supervisor.");
-            new FrmSupervisor().setVisible(true);
-            this.dispose();
-        } else if (tipoUsuario.equals("Egresado")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido, Egresado.");
-            new FrmEgresado().setVisible(true);
-            this.dispose();
-        } else if (tipoUsuario.equals("Estudiante")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido, Estudiante.");
-            new FrmEstudiante().setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Credenciales incorrectas.");
+        if (tipoUsuario.equals("Elije un usuario")) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecciona un tipo de usuario.");
+            return;
+        }
+
+        en.setUsuario(txtUsuario.getText().toLowerCase().trim());
+        en.setContraseña(txtContraseña.getText());
+        en.setEstado(DUsuarios.Estado.ACTIVO);
+        en.setTipoUsuario(DUsuarios.TipoUsuario.valueOf(cbxTipoUsuario.getSelectedItem().toString().toUpperCase()));
+
+        boolean loginCorrecto = l.validarLogin(en);
+
+        if (loginCorrecto) {
+            if (tipoUsuario.equals("Administrador")) {
+                JOptionPane.showMessageDialog(null, "Bienvenido, Administrador.");
+                new FrmAdministrador().setVisible(true);
+                this.dispose();
+            } else if (tipoUsuario.equals("Supervisor")) {
+                JOptionPane.showMessageDialog(null, "Bienvenido, Supervisor.");
+                new FrmSupervisor().setVisible(true);
+                this.dispose();
+            } else if (tipoUsuario.equals("Egresado")) {
+                JOptionPane.showMessageDialog(null, "Bienvenido, Egresado.");
+                new FrmEgresado().setVisible(true);
+                this.dispose();
+            } else if (tipoUsuario.equals("Estudiante")) {
+                JOptionPane.showMessageDialog(null, "Bienvenido, Estudiante.");
+                new FrmEstudiante().setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Credenciales incorrectas o usuario inactivo");
+            }
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
