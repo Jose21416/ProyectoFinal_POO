@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Lógica;
 
 import Datos.DUsuarios;
@@ -10,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class LUsuarios {
     
-     LConexión con = new LConexión();
+    LConexión con = new LConexión();
     Connection cn = con.getConnection();
     DUsuarios en = new DUsuarios();
     ResultSet rs;
