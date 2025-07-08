@@ -63,7 +63,17 @@ public class FrmUsuarios extends javax.swing.JFrame {
         DefaultTableModel miModelo;
         en.setUsuario(usuario);
         miModelo = l.mostrarUsuarios(en);
-        tblUsuarios.setModel(miModelo);
+        
+        if(miModelo != null && miModelo.getRowCount() > 0) {
+            
+            tblUsuarios.setModel(miModelo);
+            
+        } else {
+            
+            tblUsuarios.setModel(miModelo);
+            JOptionPane.showMessageDialog(null, "No se encontraron usuarios.", "Buscar usuario", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
 
     }
 
@@ -107,6 +117,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Registro"));
@@ -279,7 +290,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas"));
 
         btnBuscar.setBackground(new java.awt.Color(102, 102, 255));
-        btnBuscar.setText("Buscar");
+        btnBuscar.setText("Buscar por nombre");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -326,7 +337,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnBuscar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -449,7 +460,18 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        mostrarBuscar(txtBuscar.getText());
+        String criterio = txtBuscar.getText().trim();
+        
+        if(!criterio.isEmpty()) {
+            
+            mostrarBuscar(criterio);
+            
+        } else {
+            
+            mostrarBuscar("");
+            
+        }
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked

@@ -80,7 +80,7 @@ public class LUsuarios {
         modelo = new DefaultTableModel(null, titulos);
 
         String sqlSinFiltro = "{CALL MostrarListaUsuarios()}";
-        String sqlConFiltro = "SELECT id_usuario, nombre, telefono, correo, usuario, contraseña, tipo_usuario, estado"
+        String sqlConFiltro = "SELECT id_usuario, nombre, telefono, correo, usuario, contraseña, tipo_usuario, estado "
                 + "FROM usuario WHERE usuario LIKE ? ORDER BY nombre";
 
         try {
@@ -128,7 +128,7 @@ public class LUsuarios {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al mostrar usuarios: " + e.getMessage());
-            return null;
+            return modelo;
         }
     }
 
