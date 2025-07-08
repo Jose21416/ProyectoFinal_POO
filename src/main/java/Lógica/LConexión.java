@@ -17,7 +17,6 @@ public class LConexión {
         try {
             Class.forName(driver);
             cn = DriverManager.getConnection(url, usuario, clave);
-            JOptionPane.showMessageDialog(null, "Se conectó correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
         }
