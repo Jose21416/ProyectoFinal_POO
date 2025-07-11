@@ -26,7 +26,7 @@ public class LConexión {
     // Verificar la conexión
     public static void main(String[] args) {
         LConexión ocon = new LConexión();
-        System.out.println("Conectado: " + ocon.getConnection());
+        System.out.println("Conectado a: " + ocon.getConnection());
         System.out.println("Ok");
     }
 
