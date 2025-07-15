@@ -98,4 +98,6 @@ public class DUsuarios {
         this.estado = estado;
     }
     
+    public static String usuarioLogueado;
+    
 }

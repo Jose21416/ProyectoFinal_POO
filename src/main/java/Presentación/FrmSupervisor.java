@@ -4,18 +4,24 @@
  */
 package Presentación;
 
+import Datos.DUsuarios;
+import Lógica.LSupervisor;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joset
  */
 public class FrmSupervisor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmSupervisor
-     */
+    DUsuarios en = new DUsuarios();
+    LSupervisor sdao = new LSupervisor();
+    
     public FrmSupervisor() {
         initComponents();
         setLocationRelativeTo(null);
+        this.setSize(1200, 800); 
     }
 
     /**
@@ -71,6 +77,11 @@ public class FrmSupervisor extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 51, 153));
         jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(204, 0, 0));
         jButton2.setText("Eliminar todo");
@@ -190,7 +201,29 @@ public class FrmSupervisor extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar a los usuarios excepto a los administradores?", 
+                "Confirmar eliminacion", JOptionPane.YES_NO_OPTION);
+        if(confirmacion == JOptionPane.YES_OPTION){
+            boolean eliminado = sdao.eliminarUsuarios();
+            if(eliminado){
+                JOptionPane.showMessageDialog(null, "Usuarios eliminados (Excepto administradores)");
+                en.setUsuario("");
+                DefaultTableModel modelo = sdao.listarUsuarios(en);
+                FrmUserSuper.tblVista.setModel(modelo);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se eliminaron usuarios o no se encuentran en la base de datos");
+            }
+        }  
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        en.setUsuario("");
+        
+        DefaultTableModel modelo = sdao.listarUsuarios(en);
+        FrmUserSuper.tblVista.setModel(modelo);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

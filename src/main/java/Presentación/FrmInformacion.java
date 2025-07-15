@@ -4,12 +4,18 @@
  */
 package Presentación;
 
+import Datos.DUsuarios;
+import Lógica.LEstudiante;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author GMG
  */
 public class FrmInformacion extends javax.swing.JInternalFrame {
 
+    DUsuarios es = new DUsuarios();
+    LEstudiante edao = new LEstudiante();
     
     public FrmInformacion() {
         initComponents();
@@ -33,8 +39,8 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNombreEst = new javax.swing.JTextField();
         txtCorreoEst = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtContraseñaest = new javax.swing.JTextField();
+        txtTelefonoest = new javax.swing.JTextField();
         btnMostrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -69,11 +75,11 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField5.setEditable(false);
-        jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtContraseñaest.setEditable(false);
+        txtContraseñaest.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextField6.setEditable(false);
-        jTextField6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTelefonoest.setEditable(false);
+        txtTelefonoest.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,10 +94,10 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5)
+                    .addComponent(txtContraseñaest)
                     .addComponent(txtCorreoEst)
                     .addComponent(txtNombreEst, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6))
+                    .addComponent(txtTelefonoest))
                 .addGap(85, 85, 85))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,17 +114,22 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContraseñaest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         btnMostrar.setBackground(new java.awt.Color(204, 204, 204));
         btnMostrar.setForeground(new java.awt.Color(0, 0, 0));
         btnMostrar.setText("Mostrar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Opcion");
@@ -162,6 +173,24 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoEstActionPerformed
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        
+        String usuario = DUsuarios.usuarioLogueado;
+        es.setUsuario(usuario);        
+        DUsuarios resultado = edao.mostrarInformacionEstudiante(es);
+
+        if (resultado != null) {
+            txtNombreEst.setText(resultado.getNombre());
+            txtCorreoEst.setText(resultado.getCorreo());
+            txtContraseñaest.setText(resultado.getContraseña());
+            txtTelefonoest.setText(resultado.getTelefono());
+        } else {
+            JOptionPane.showMessageDialog(this, "Estudiante no encontrado");
+        }
+        
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMostrar;
@@ -171,9 +200,9 @@ public class FrmInformacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtContraseñaest;
     private javax.swing.JTextField txtCorreoEst;
     private javax.swing.JTextField txtNombreEst;
+    private javax.swing.JTextField txtTelefonoest;
     // End of variables declaration//GEN-END:variables
 }
