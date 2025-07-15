@@ -1,5 +1,6 @@
 package Presentación;
 
+import Lógica.LRecuperación;
 import Lógica.LTemporizadorCodigo;
 import javax.swing.JOptionPane;
 
@@ -11,9 +12,16 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
     private final int DURACION_CODIGO = 60;
     private String correoDestino;
 
-    public FrmRecuperarContraseña3() {
+    private int idUsuario;
+
+    public FrmRecuperarContraseña3(int idUsuario) {
         initComponents();
-        setLocationRelativeTo(null);
+        this.idUsuario = idUsuario;
+        this.setLocationRelativeTo(null);
+    }
+
+    private FrmRecuperarContraseña3() {
+        initComponents();
     }
 
     @SuppressWarnings("unchecked")
@@ -37,7 +45,7 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Ingrese el código");
+        jLabel1.setText("Ingrese el código de 6 digitos");
 
         txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -49,7 +57,7 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
         lblContador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblContador.setText("contador");
 
-        btnReenviar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnReenviar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnReenviar.setText("Reenviar Código");
         btnReenviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +65,7 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setText("Volver a login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +74,7 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
         });
 
         btnValidar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnValidar.setText("Verificar");
+        btnValidar.setText("Validar");
         btnValidar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidarActionPerformed(evt);
@@ -98,36 +107,33 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnReenviar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(135, 135, 135))
             .addGroup(layout.createSequentialGroup()
                 .addGap(206, 206, 206)
                 .addComponent(lblContador)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(177, 177, 177))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnReenviar)
+                .addGap(18, 18, 18)
+                .addComponent(btnValidar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogin)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(lblContador)
@@ -163,11 +169,25 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
-        FrmRecuperarContraseña4 r = new FrmRecuperarContraseña4();
-        r.show();
-        JOptionPane.showMessageDialog(null, "Codigo valido");
+        String codigoIngresado = txtCodigo.getText().trim();
+
+        if (codigoIngresado.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese el codigo de verificación. ", "Campo vacio", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        LRecuperación dao = new LRecuperación();
+
+        boolean esValido = dao.verificarYUsarCodigo(this.idUsuario, codigoIngresado);
+        FrmRecuperarContraseña4 r = new FrmRecuperarContraseña4(this.idUsuario);
+        r.setVisible(true);
         this.dispose();
-        
+        if (esValido) {
+            JOptionPane.showMessageDialog(this, "Codigo verificado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "El código es incorrecto, ha expirado o ya fue utilizado.", "Error de Verificación", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnValidarActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed

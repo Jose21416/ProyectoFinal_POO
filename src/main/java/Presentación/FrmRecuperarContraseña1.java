@@ -1,5 +1,9 @@
-
 package Presentación;
+
+import Lógica.LRecuperación;
+import Lógica.LServicioEmail;
+import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
 
@@ -102,13 +106,52 @@ public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String generarCodigoAleatorio() {
+        Random random = new Random();
+        int numero = 100000 + random.nextInt(900000); // Código de 6 dígitos
+        return String.valueOf(numero);
+    }
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        String username = txtUsuario.getText();
+        String correo = txtUsuario.getText().trim();
         boolean usuarioEncontrado = false;
-        
-        if (usuarioEncontrado){
-            FrmRecuperarContraseña2 frc2 = new FrmRecuperarContraseña2();
+
+        if (correo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un correo electronico", "Campo vacío", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        LRecuperación dao = new LRecuperación();
+
+        Integer idUsuario = dao.buscarIdUsuarioPorCorreo(correo);
+        if (idUsuario != null) {
+            JOptionPane.showMessageDialog(this, "Usuario encontrado. Se enviará un código de verificación a su correo.");
+            String codigoGenerado = generarCodigoAleatorio();
+            boolean guardadoExitoso = dao.guardarCodigoVerificacion(idUsuario, codigoGenerado);
+            
+            if (guardadoExitoso) {
+                LServicioEmail servicioEmail = new LServicioEmail();
+                String asunto = "Código de Recuperación de Contraseña";
+                String cuerpo = "Hola,\n\nHas solicitado restablecer tu contraseña.\n\nTu código de verificación es: " + codigoGenerado + "\n\nEste código expirará en 10 minutos.\n\nSi no solicitaste esto, puedes ignorar este correo.\n";
+                
+                boolean enviadoExitoso = servicioEmail.enviarCorreo(correo, asunto, cuerpo);
+                
+                if (enviadoExitoso) {
+                    JOptionPane.showMessageDialog(this, "Se ha enviado un código de verificación a " + correo);
+                    
+                    // Abrir el siguiente formulario
+                    FrmRecuperarContraseña3 frc3 = new FrmRecuperarContraseña3(idUsuario);
+                    frc3.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo enviar el correo de recuperación", "Error de envio", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Hubo un error al prepara la recuperación. Intentalo de nuevo", "Error de base de datos", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "El correo electronico no se encuentra registrado en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 

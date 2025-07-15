@@ -257,7 +257,7 @@ public class FrmLogin2 extends javax.swing.JFrame {
 
     private void lblRecuperarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperarMouseClicked
         // TODO add your handling code here:
-        FrmRecuperarContraseña3 FrmCodigoRecuperacion = new FrmRecuperarContraseña3();
+        FrmRecuperarContraseña1 FrmCodigoRecuperacion = new FrmRecuperarContraseña1();
         FrmCodigoRecuperacion.show();
         this.dispose();
     }//GEN-LAST:event_lblRecuperarMouseClicked
