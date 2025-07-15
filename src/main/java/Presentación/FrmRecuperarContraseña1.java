@@ -9,6 +9,7 @@ public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
 
     public FrmRecuperarContraseña1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -108,7 +109,7 @@ public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
 
     private String generarCodigoAleatorio() {
         Random random = new Random();
-        int numero = 100000 + random.nextInt(900000); // Código de 6 dígitos
+        int numero = 100000 + random.nextInt(900000);
         return String.valueOf(numero);
     }
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -138,9 +139,7 @@ public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
                 
                 if (enviadoExitoso) {
                     JOptionPane.showMessageDialog(this, "Se ha enviado un código de verificación a " + correo);
-                    
-                    // Abrir el siguiente formulario
-                    FrmRecuperarContraseña3 frc3 = new FrmRecuperarContraseña3(idUsuario);
+                    FrmRecuperarContraseña2 frc3 = new FrmRecuperarContraseña2(idUsuario);
                     frc3.setVisible(true);
                     this.dispose();
                 } else {

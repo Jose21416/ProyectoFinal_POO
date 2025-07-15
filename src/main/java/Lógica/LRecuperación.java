@@ -41,9 +41,9 @@ public class LRecuperación {
     }
     
     public boolean guardarCodigoVerificacion(int idUsuario, String codigo) {
-        String sql = "INSERT INTO codigo_verificacion (id_usuario, codigo, metodo_envio, fecha_expiracion) VALUES (?, ?, 'correo', DATE_ADD(NOW(), INTERVAL 10 MINUTE))";
+        String sql = "INSERT INTO codigo_verificacion (id_usuario, codigo, metodo_envio, fecha_expiracion) VALUES (?, ?, 'correo', DATE_ADD(NOW(), INTERVAL 1 MINUTE))";
         
-        try (PreparedStatement ps = cn.prepareStatement(sql)) { // Usando try-with-resources aquí para simplificar
+        try (PreparedStatement ps = cn.prepareStatement(sql)) { 
             ps.setInt(1, idUsuario);
             ps.setString(2, codigo);
             return ps.executeUpdate() > 0;
@@ -54,8 +54,6 @@ public class LRecuperación {
     }
     
     public boolean verificarYUsarCodigo(int idUsuario, String codigo) {
-        // Este método es más complejo y requiere una transacción, que es difícil de manejar
-        // correctamente con una única conexión compartida. Se simplifica para este ejemplo.
         String selectSql = "SELECT id_codigo FROM codigo_verificacion WHERE id_usuario = ? AND codigo = ? AND usado = 0 AND fecha_expiracion > NOW()";
         
         try (PreparedStatement psSelect = cn.prepareStatement(selectSql)) {

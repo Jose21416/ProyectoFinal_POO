@@ -1,85 +1,38 @@
 package Presentación;
 
 import Lógica.LRecuperación;
-import Lógica.LTemporizadorCodigo;
 import javax.swing.JOptionPane;
 
 public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
 
-    private LTemporizadorCodigo temporizador;
-    private String codigoGenerado;
-    private final int LONGITUD_CODIGO = 6;
-    private final int DURACION_CODIGO = 60;
-    private String correoDestino;
-
     private int idUsuario;
+
+    public FrmRecuperarContraseña3() {
+        initComponents();
+    }
 
     public FrmRecuperarContraseña3(int idUsuario) {
         initComponents();
-        this.idUsuario = idUsuario;
         this.setLocationRelativeTo(null);
-    }
-
-    private FrmRecuperarContraseña3() {
-        initComponents();
+        this.idUsuario = idUsuario;
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        lblContador = new javax.swing.JLabel();
-        btnReenviar = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
-        btnValidar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnConfirmar = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Ingrese el código de 6 digitos");
-
-        txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-
-        lblContador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblContador.setText("contador");
-
-        btnReenviar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnReenviar.setText("Reenviar Código");
-        btnReenviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReenviarActionPerformed(evt);
-            }
-        });
-
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLogin.setText("Volver a login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        btnValidar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnValidar.setText("Validar");
-        btnValidar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValidarActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Recuperación de cuenta");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -103,96 +56,100 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Nueva Contraseña: ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Confirmar Contraseña: ");
+
+        btnConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfirmar.setText("Restablecer");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
+
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jPasswordField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(jPasswordField2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(135, 135, 135))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(lblContador)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnReenviar)
-                .addGap(18, 18, 18)
-                .addComponent(btnValidar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogin)
-                .addGap(27, 27, 27))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(lblContador)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReenviar)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReenviarActionPerformed
-        // TODO add your handling code here:
-        enviarCodigoAlCorreo();
-        temporizador.Reiniciar();
-    }//GEN-LAST:event_btnReenviarActionPerformed
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        temporizador = new LTemporizadorCodigo(DURACION_CODIGO, lblContador, btnReenviar);
-        temporizador.Iniciar();
-
-        enviarCodigoAlCorreo();
-    }//GEN-LAST:event_formWindowOpened
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        FrmLogin2 l = new FrmLogin2();
-        l.show();
-        this.dispose();
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
-        String codigoIngresado = txtCodigo.getText().trim();
-
-        if (codigoIngresado.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese el codigo de verificación. ", "Campo vacio", JOptionPane.WARNING_MESSAGE);
+        String nuevaContraseña = new String(jPasswordField1.getPassword());
+        String confirmarContraseña = new String(jPasswordField2.getPassword());
+        if (nuevaContraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ambos campos de contraseña son obligatorios.", "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
+        if (!nuevaContraseña.equals(confirmarContraseña)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         LRecuperación dao = new LRecuperación();
+        boolean actualizado = dao.actualizarContraseña(this.idUsuario, nuevaContraseña);
+        if (actualizado) {
+            JOptionPane.showMessageDialog(this, "¡Contraseña actualizada con éxito! Ya puede iniciar sesión.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
-        boolean esValido = dao.verificarYUsarCodigo(this.idUsuario, codigoIngresado);
-        FrmRecuperarContraseña4 r = new FrmRecuperarContraseña4(this.idUsuario);
-        r.setVisible(true);
-        this.dispose();
-        if (esValido) {
-            JOptionPane.showMessageDialog(this, "Codigo verificado correctamente.");
+            FrmLogin2 frmLogin = new FrmLogin2();
+            frmLogin.setVisible(true);
+            this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "El código es incorrecto, ha expirado o ya fue utilizado.", "Error de Verificación", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se pudo actualizar la contraseña. Intente de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-    }//GEN-LAST:event_btnValidarActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +178,12 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -231,17 +194,13 @@ public class FrmRecuperarContraseña3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnReenviar;
-    private javax.swing.JButton btnValidar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblContador;
-    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     // End of variables declaration//GEN-END:variables
-
-    private void enviarCodigoAlCorreo() {
-        System.out.println("Código enviado por correo (simulado)");
-    }
 }
