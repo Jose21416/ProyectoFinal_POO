@@ -329,14 +329,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnEliminar" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="txtBuscar" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="btnEliminar" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="440" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnImprimir" min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Component id="jScrollPane1" alignment="1" pref="749" max="32767" attributes="0"/>
           </Group>
@@ -352,7 +354,10 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="248" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="btnEliminar" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnImprimir" max="32767" attributes="0"/>
+                      <Component id="btnEliminar" pref="40" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="119" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -406,6 +411,17 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBuscar">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnImprimir">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Imprimir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
