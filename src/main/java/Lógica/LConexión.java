@@ -9,7 +9,7 @@ public class LConexión {
     // URL corregida con allowPublicKeyRetrieval=true
     private final String url = "jdbc:mysql://localhost:3306/proyectofinal?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private final String usuario = "root";
-    private final String clave = "1234";
+    private final String clave = "root";
     
     public Connection getConnection() {
         try {
