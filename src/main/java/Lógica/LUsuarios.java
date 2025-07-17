@@ -29,6 +29,7 @@ public class LUsuarios {
                 en.setEstado(DUsuarios.Estado.valueOf(rs.getString("estado").toUpperCase()));
                 en.setTipoUsuario(DUsuarios.TipoUsuario.valueOf(rs.getString("tipo_usuario").toUpperCase()));
 
+                DUsuarios.usuarioLogueado = rs.getString("usuario");
                 return true;
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro el usuario (Esta inactivo o el tipo de usuario no es el correcto)", "Aviso del sistema",
