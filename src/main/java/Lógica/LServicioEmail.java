@@ -5,8 +5,8 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class LServicioEmail {
-    private final String remitente = "aramis.aldui12@gmail.com";
-    private final String claveRemitente = "cqaw dwaz pxmq iucv";
+    private final String remitente = "universidadsideralcarrion.usc@gmail.com";
+    private final String claveRemitente = "rrci mbjz ozhu xoar";
     
     public boolean enviarCorreo(String destinatario, String asunto, String cuerpo) {
         Properties props = new Properties();

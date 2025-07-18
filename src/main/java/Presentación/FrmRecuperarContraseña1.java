@@ -133,7 +133,7 @@ public class FrmRecuperarContraseña1 extends javax.swing.JFrame {
             if (guardadoExitoso) {
                 LServicioEmail servicioEmail = new LServicioEmail();
                 String asunto = "Código de Recuperación de Contraseña";
-                String cuerpo = "Hola,\n\nHas solicitado restablecer tu contraseña.\n\nTu código de verificación es: " + codigoGenerado + "\n\nEste código expirará en 10 minutos.\n\nSi no solicitaste esto, puedes ignorar este correo.\n";
+                String cuerpo = "Hola,\n\nHas solicitado restablecer tu contraseña.\n\nTu código de verificación es: " + codigoGenerado + "\n\nEste código expirará en 60 segundos.\n\nSi no solicitaste esto, puedes ignorar este correo.\n";
                 
                 boolean enviadoExitoso = servicioEmail.enviarCorreo(correo, asunto, cuerpo);
                 
