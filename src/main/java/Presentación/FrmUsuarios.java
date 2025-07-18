@@ -17,18 +17,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author joset
- */
 public class FrmUsuarios extends javax.swing.JFrame {
 
     DUsuarios en = new DUsuarios();
@@ -130,9 +119,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
         tblUsuarios = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
-        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Usuarios");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -339,14 +328,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
             }
         });
 
-        btnImprimir.setBackground(new java.awt.Color(102, 102, 255));
-        btnImprimir.setText("Imprimir");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -359,9 +340,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar))
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -374,9 +353,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
@@ -387,13 +364,12 @@ public class FrmUsuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -534,49 +510,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
         mostrarBuscar("");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-
-        Connection conn = null;
-
-        try {
-            // Cargar el driver de MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Establecer la conexión a la base de datos
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/proyectofinal?useSSL=false&serverTimezone=UTC",
-                    "root",
-                    "root" // contraseña si tienes una
-            );
-
-            InputStream reporteStream = getClass().getResourceAsStream("/reportes/Estudiantes.jasper");
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(reporteStream);
-
-            // Rellenar el reporte sin parámetros (puedes usar un Map si necesitas parámetros)
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, conn);
-
-            // Mostrar el visor de Jasper
-            JasperViewer viewer = new JasperViewer(print, false);
-            viewer.setTitle("Vista previa del reporte");
-            viewer.setVisible(true);
-
-        } catch (Exception e) {
-            // Mostrar errores
-            JOptionPane.showMessageDialog(null, "Error al generar el reporte:\n" + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
-
-    }//GEN-LAST:event_btnImprimirActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -618,7 +551,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JComboBox<String> cmbPerfil;
